@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Turnstile from "react-turnstile";
 
 export default function Home() {
   const [token, setToken] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setStatus("loading");
 
     const form = new FormData(e.currentTarget);
 
@@ -26,10 +30,9 @@ export default function Home() {
     });
 
     if (res.ok) {
-      setStatus("Sent");
-      e.currentTarget.reset();
+      setStatus("success");
     } else {
-      setStatus("Error sending message");
+      setStatus("error");
     }
   }
 
@@ -37,49 +40,73 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
       <div className="w-full max-w-md flex flex-col items-center gap-6">
         <img
-          src="/pjfamily.jpg"
+          src="/image.jpg"
           alt="Center"
           className="max-w-full rounded-2xl"
         />
 
-        <form onSubmit={submit} className="w-full flex flex-col gap-3">
-          <input
-            name="name"
-            placeholder="Name"
-            required
-            className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
-          />
+        {status === "success" ? (
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold mb-2">
+              Message sent
+            </h2>
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            required
-            className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
-          />
-
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows={5}
-            required
-            className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
-          />
-
-          <Turnstile
-            sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onVerify={(token) => setToken(token)}
-          />
-
-          <button
-            type="submit"
-            className="bg-white text-black rounded-xl p-3 font-medium"
+            <p className="text-neutral-400">
+              We’ll get back to you soon.
+            </p>
+          </div>
+        ) : (
+          <form
+            onSubmit={submit}
+            className="w-full flex flex-col gap-3"
           >
-            Send
-          </button>
+            <input
+              name="name"
+              placeholder="Name"
+              required
+              className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
+            />
 
-          <p className="text-sm text-neutral-400">{status}</p>
-        </form>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Message"
+              rows={5}
+              required
+              className="bg-neutral-900 border border-neutral-700 p-3 rounded-xl"
+            />
+
+            <Turnstile
+              sitekey={
+                process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!
+              }
+              onVerify={(token) => setToken(token)}
+            />
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="bg-white text-black rounded-xl p-3 font-medium disabled:opacity-50"
+            >
+              {status === "loading"
+                ? "Sending..."
+                : "Send"}
+            </button>
+
+            {status === "error" && (
+              <p className="text-red-400 text-sm">
+                Something went wrong.
+              </p>
+            )}
+          </form>
+        )}
       </div>
     </main>
   );
