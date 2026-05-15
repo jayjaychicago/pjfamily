@@ -37,7 +37,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
       <div className="w-full max-w-md flex flex-col items-center gap-6">
         <img
-          src="/image.jpg"
+          src="/pjfamily.jpg"
           alt="Center"
           className="max-w-full rounded-2xl"
         />
