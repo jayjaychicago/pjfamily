@@ -31,8 +31,11 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "contact@pj.family",
-      to: "julienpmjacquet@gmail.com",
-      subject: `Website message from ${body.name}`,
+      to: [
+        "julienpmjacquet@gmail.com",
+        "alexanderkpurdy@gmail.com"
+      ],
+      subject: `PJ.FAMILY Website message from ${body.name}`,
       replyTo: body.email,
       text: `
 Name: ${body.name}
