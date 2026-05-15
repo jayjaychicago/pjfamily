@@ -5,6 +5,8 @@ import Turnstile from "react-turnstile";
 
 export default function Home() {
   const [token, setToken] = useState("");
+  const [showForm, setShowForm] = useState(false);
+
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -61,6 +63,13 @@ export default function Home() {
               We’ll get back to you soon.
             </p>
           </div>
+        ) : !showForm ? (
+          <button
+            onClick={() => setShowForm(true)}
+            className="bg-white text-black rounded-xl px-8 py-3 font-medium hover:opacity-90 transition"
+          >
+            Contact Us
+          </button>
         ) : (
           <form
             onSubmit={submit}
