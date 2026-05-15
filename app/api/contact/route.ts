@@ -30,8 +30,8 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "contact@pjfamily.com",
-      to: "julien@pjfamily.com",
+      from: "contact@pj.family",
+      to: "julien@pj.family",
       subject: `Website message from ${body.name}`,
       replyTo: body.email,
       text: `
