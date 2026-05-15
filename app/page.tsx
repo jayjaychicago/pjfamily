@@ -39,11 +39,17 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
       <div className="w-full max-w-md flex flex-col items-center gap-6">
-        <img
-          src="/pjfamily.jpg"
-          alt="Center"
-          className="max-w-full rounded-2xl"
-        />
+        <div className="flex flex-col items-center gap-4">
+          <img
+            src="/pjfamily.jpg"
+            alt="PJ Family"
+            className="max-w-full rounded-2xl"
+          />
+
+          <h1 className="text-4xl font-light tracking-wide text-center">
+            une maison, mille mondes
+          </h1>
+        </div>
 
         {status === "success" ? (
           <div className="text-center">
