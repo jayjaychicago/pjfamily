@@ -43,8 +43,8 @@ export default function Home() {
       <div className="w-full max-w-md flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-4">
           <img
-            src="/pjfamily.jpg"
-            alt="PJ Family"
+            src={showForm ? "/pjfamily.jpg" : "/crest.png"}
+            alt={showForm ? "PJ Family" : "PJ Family crest"}
             className="max-w-full rounded-2xl"
           />
 
