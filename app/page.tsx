@@ -48,9 +48,7 @@ export default function Home() {
             className="max-w-full rounded-2xl"
           />
 
-          <h1 className="text-4xl font-light tracking-wide text-center">
-            une maison, mille mondes
-          </h1>
+
         </div>
 
         {status === "success" ? (
