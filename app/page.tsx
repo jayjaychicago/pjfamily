@@ -68,7 +68,7 @@ export default function Home() {
             onClick={() => setShowForm(true)}
             className="bg-white text-black rounded-xl px-8 py-3 font-medium hover:opacity-90 transition"
           >
-            Contact Us
+            Contact Us for a playdate
           </button>
         ) : (
           <form
