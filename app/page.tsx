@@ -48,7 +48,9 @@ export default function Home() {
             className="max-w-full rounded-2xl"
           />
 
-
+          <h1 className="text-4xl font-light tracking-wide text-center">
+            Contact us for a playdate
+          </h1>
         </div>
 
         {status === "success" ? (
