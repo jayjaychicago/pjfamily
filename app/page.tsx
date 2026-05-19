@@ -49,7 +49,7 @@ export default function Home() {
           />
 
           <h1 className="text-4xl font-light tracking-wide text-center">
-            Contact us for a playdate
+            Une maison, mille mondes
           </h1>
         </div>
 
