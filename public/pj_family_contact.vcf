@@ -2,7 +2,7 @@ BEGIN:VCARD
 VERSION:3.0
 N:Jacquet;Julien;;;
 FN:Julien Jacquet
-NOTE:George's father
+ORG:George's father
 TEL;TYPE=CELL,VOICE:+14154168674
 IMPP:whatsapp:+14154168674
 EMAIL;TYPE=INTERNET,HOME:julien@pj.family
