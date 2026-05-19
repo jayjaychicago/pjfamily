@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Jacquet;Julien;;;
+FN:Julien Jacquet
+NOTE:George's father
+TEL;TYPE=CELL,VOICE:+14154168674
+IMPP:whatsapp:+14154168674
+EMAIL;TYPE=INTERNET,HOME:julien@pj.family
+ADR;TYPE=HOME:;;Maple & Linden;Birmingham;MI;;USA
+URL:https://pj.family
+END:VCARD
